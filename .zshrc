@@ -80,6 +80,7 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins '^h' vi-backward-word
 bindkey -M viins '^l' vi-forward-word
 bindkey -M vicmd '^l' zle-clear-screen
+bindkey '^k' zle-clear-screen
 
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-exports"
