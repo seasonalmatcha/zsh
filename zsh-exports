@@ -3,7 +3,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:$HOME/.cargo/bin
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$GOPATH:/bin:$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
