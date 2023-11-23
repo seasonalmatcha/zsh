@@ -2,12 +2,10 @@ alias o='open .'
 alias c='code .'
 
 if (( $+commands[batcat] )); then
-  alias cat=batcat
-if
-
-if (( $+commands[bat] )); then
+  alias cat='batcat'
+elif (( $+commands[bat] )); then
   alias cat=bat
-if
+fi
 
 alias dev='cd ~/dev'
 alias ls='lsd'
