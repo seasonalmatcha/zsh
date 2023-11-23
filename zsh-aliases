@@ -7,6 +7,10 @@ elif (( $+commands[bat] )); then
   alias cat=bat
 fi
 
+if (( $+commands[minikube] )); then
+  alias kubectl="minikube kubectl --"
+fi
+
 alias dev='cd ~/dev'
 alias ls='lsd'
 alias ll='lsd -al'
