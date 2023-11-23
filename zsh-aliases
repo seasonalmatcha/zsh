@@ -1,6 +1,14 @@
 alias o='open .'
 alias c='code .'
-alias cat=batcat
+
+if (( $+commands[batcat] )); then
+  alias cat=batcat
+if
+
+if (( $+commands[bat] )); then
+  alias cat=bat
+if
+
 alias dev='cd ~/dev'
 alias ls='lsd'
 alias ll='lsd -al'
