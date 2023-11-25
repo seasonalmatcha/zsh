@@ -1,0 +1,77 @@
+add_newline = false
+
+# 強 alan:[dir  (brach status)] $
+format = """
+強 $username:\
+\\[\
+$directory\
+(  \\(($git_branch)( $git_status)\\))\
+\\] \
+$character\
+"""
+
+right_format = """
+$bun\
+$nodejs\
+$golang\
+$rust\
+$time\
+"""
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vimcmd_symbol = "[\\$](bold green)"
+vimcmd_replace_symbol = "[\\$](bold green)"
+vimcmd_replace_one_symbol = "[\\$](bold green)"
+vimcmd_visual_symbol = "[\\$](bold green)"
+
+[directory]
+truncation_length = 1
+format = "[ $path]($style)[$read_only]($read_only_style)"
+
+[time]
+disabled = false
+format = "🕙[$time]($style)"
+style = "white"
+
+[username]
+disabled = false
+show_always = true
+format = "[$user](bold blue)"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style)"
+symbol = "󰘬 "
+
+[git_status]
+format = """
+$untracked\
+$modified\
+$deleted\
+$staged\
+$stashed\
+$ahead\
+$behind\
+$conflicted\
+"""
+untracked = "[($count)󱀶](grey)"
+modified = " [($count)󱇨](blue)"
+deleted = " [($count)󱪢](red)"
+staged = " [($count)󰻭](green)"
+stashed = "[($count)󰉖]"
+ahead = "[($count)⇡](green)"
+behind = "[($count)⇣](red)"
+
+[bun]
+format = "[$symbol($version )]($style)"
+
+[golang]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[rust]
+format = "[$symbol($version )]($style)"

@@ -84,9 +84,12 @@ bindkey '^k' zle-clear-screen
 
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-exports"
-zsh_add_file "zsh-prompt"
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7c7c7c,bg=#2a2c33,bold,underline"
+if (( $+commands[starship] )); then
+  eval "$(starship init zsh)"
+else
+  zsh_add_file "zsh-prompt"
+fi
