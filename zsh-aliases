@@ -1,5 +1,10 @@
-alias o='open .'
 alias c='code .'
+
+if (( $+commands[open] )); then
+  alias o='open .'
+elif (( $+commands[explorer.exe] )); then
+  alias o='explorer.exe .'
+fi
 
 if (( $+commands[batcat] )); then
   alias cat='batcat'
