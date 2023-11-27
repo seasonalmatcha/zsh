@@ -59,7 +59,7 @@ untracked = "[($count)󱀶](grey)"
 modified = " [($count)󱇨](blue)"
 deleted = " [($count)󱪢](red)"
 staged = " [($count)󰻭](green)"
-stashed = "[($count)󰉖]"
+stashed = "[($count)󰉖](yellow)"
 ahead = "[($count)⇡](green)"
 behind = "[($count)⇣](red)"
 
