@@ -13,3 +13,5 @@ export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
 export PNPM_HOME="/home/alan/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+export PATH=$HOME/.local/bin:$PATH
