@@ -10,7 +10,7 @@ export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 # pnpm
-export PNPM_HOME="/home/alan/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
