@@ -16,6 +16,10 @@ if (( $+commands[minikube] )); then
   alias kubectl="minikube kubectl --"
 fi
 
+if (( $+commands[lazydocker] )); then
+  alias lzd="lazydocker"
+fi
+
 alias dev='cd ~/dev'
 alias ls='lsd'
 alias ll='lsd -al'
