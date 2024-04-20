@@ -93,3 +93,11 @@ if (( $+commands[starship] )); then
 else
   zsh_add_file "zsh-prompt"
 fi
+
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
+if (( $+commands[fzf] )); then
+  eval "$(fzf --zsh)"
+fi
