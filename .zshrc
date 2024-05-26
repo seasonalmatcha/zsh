@@ -17,12 +17,21 @@ stty stop undef
 zle_highlight=('paste:none')
 unsetopt BEEP
 
-autoload -Uz compinit; compinit
-zstyle ':completion:*' menu select
+source "$ZDOTDIR/zsh-functions"
 
+zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-exports"
+
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "Aloxaf/fzf-tab"
+
+autoload -Uz compinit;
+compinit
+zstyle ':completion:*' menu select
 # autocomplete with ignore case
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
 # change directory colors for autocomplete menu
 eval "$(dircolors -b)"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -39,15 +48,7 @@ zle -N down-line-or-begining-search
 autoload -Uz colors && colors
 autoload -Uz add-zsh-hook
 
-source "$ZDOTDIR/zsh-functions"
-
-# bindkey ";5D" backward-word
-# bindkey ";5C" forward-word
-# bindkey "^H" backward-kill-word
-# bindkey "5~" kill-word
-
 bindkey -v
-# export KEYTIMEOUT=1
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -89,14 +90,6 @@ bindkey -M viins '^h' vi-backward-word
 bindkey -M viins '^l' vi-forward-word
 bindkey -M vicmd '^l' zle-clear-screen
 bindkey '^k' zle-clear-screen
-
-zsh_add_file "zsh-aliases"
-zsh_add_file "zsh-exports"
-
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-completions"
-zsh_add_plugin "Aloxaf/fzf-tab"
 
 if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
