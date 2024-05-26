@@ -1,14 +1,23 @@
 #!/bin/zsh
 
-HISTFILE=~/.zsh_history
+HISTSIZE=5000
+HISTFILE=$ZDOTDIR/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=ersase
 setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
 stty stop undef
 zle_highlight=('paste:none')
 unsetopt BEEP
 
-autoload -Uz compinit
+autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
 # autocomplete with ignore case
@@ -16,8 +25,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}' 'r:|[._-
 
 # change directory colors for autocomplete menu
 eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zmodload zsh/complist
 
@@ -87,6 +95,8 @@ zsh_add_file "zsh-exports"
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "Aloxaf/fzf-tab"
 
 if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
